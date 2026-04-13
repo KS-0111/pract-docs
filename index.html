@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GCP News Feed</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 40px; background: #f8f9fa; }
+        .container { max-width: 800px; margin: auto; }
+        .card { background: white; padding: 20px; margin-bottom: 15px; border-radius: 12px; border-left: 5px solid #4285F4; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #202124; text-align: center; }
+        a { text-decoration: none; color: #1a73e8; font-weight: bold; font-size: 1.1em; }
+        .meta { font-size: 0.8em; color: #70757a; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Live Hacker News Feed</h1>
+        <p style="text-align:center">Triggered by Cloud Scheduler | Hosted on Cloud Run</p>
+        {% for entry in entries %}
+        <div class="card">
+            <a href="{{ entry.link }}" target="_blank">{{ entry.title }}</a>
+            <div class="meta">Source: hnrss.org</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
