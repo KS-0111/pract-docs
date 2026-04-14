@@ -6,14 +6,14 @@ gunicorn
 gcloud run deploy web-feed-service \
 --source . \
 --allow-unauthenticated \
---region europe-west1
+--region us-west1
 
 --JOB SCHEDULER
 gcloud scheduler jobs create http feed-job \
---schedule=&quot;*/10 * * * *&quot; \
---uri=&quot;[YOUR_URL]&quot; \
+--schedule="*/10 * * * *" \
+--uri="" \
 --http-method=GET \
---location=europe-west1
+--location=us-west1
 
 --MANUAL TRIGGER
 gcloud scheduler jobs run feed-job --location=us-central1
