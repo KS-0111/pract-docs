@@ -15,12 +15,14 @@
     <div class="container">
         <h1>🚀 Live Hacker News Feed</h1>
         <p style="text-align:center">Triggered by Cloud Scheduler | Hosted on Cloud Run</p>
+
         {% for entry in entries %}
         <div class="card">
             <a href="{{ entry.link }}" target="_blank">{{ entry.title }}</a>
             <div class="meta">Source: hnrss.org</div>
         </div>
         {% endfor %}
+
     </div>
 </body>
 </html>
