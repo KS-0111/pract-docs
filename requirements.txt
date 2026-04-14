@@ -1,0 +1,19 @@
+flask
+feedparser
+gunicorn
+
+--DEPLOYMENT
+gcloud run deploy web-feed-service \
+--source . \
+--allow-unauthenticated \
+--region europe-west1
+
+--JOB SCHEDULER
+gcloud scheduler jobs create http feed-job \
+--schedule=&quot;*/10 * * * *&quot; \
+--uri=&quot;[YOUR_URL]&quot; \
+--http-method=GET \
+--location=europe-west1
+
+--MANUAL TRIGGER
+gcloud scheduler jobs run feed-job --location=us-central1
